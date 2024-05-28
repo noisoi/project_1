@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>국내 여행 추천 시스템</title>
+</head>
+<body>
+    <h1>국내 여행 추천 시스템</h1>
+    {% comment %} 검색창 만들기 {% endcomment %}
+    <form action="{% url 'search' %}" method="GET">
+        <input type="text" name="q" placeholder="키워드를 입력하세요.">
+        <input type="submit" value="검색">
+    </form>
+
+    {% if keyword %}
+        <h2>키워드: {{ keyword }}</h2>
+        {% if place_names %}
+            <ul>
+                {% for place_name in place_names %}
+                    <li>{{ place_name }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>키워드에 대한 장소가 없습니다.</p>
+        {% endif %}
+    {% else %}
+            <p>검색어를 입력하세요.</p>
+    {% endif %}
+</body>
+</html>

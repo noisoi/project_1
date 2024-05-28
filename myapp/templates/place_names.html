@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Place Names</title>
+</head>
+<body>
+    <h1>Place names for keyword: {{ keyword }}</h1>
+    {% if place_names %}
+        <ul>
+            {% for place_name in place_name %}
+                <li>{{ place_name }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No places found for this keyword.</p>
+    {% endif %}
+</body>
+</html>
